@@ -9,6 +9,6 @@ on:
             - main
 jobs:
     echo:
-        runs-on: ubuntu_latest
+        runs-on: ubuntu-latest
         steps:
             - run: echo "This job runs on pull requests"
