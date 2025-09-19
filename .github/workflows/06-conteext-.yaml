@@ -26,7 +26,7 @@ jobs:
                 echo "Branch: ${{ github.ref }}"
                 echo "Repository: ${{ github.repository }}"
                 echo "Run ID: ${{ github.run_id }}"
-                echo "SHA; ${{github.sha}}"
+                echo "SHA: ${{github.sha}}"
                 echo "Workflow: ${{ github.workflow }}"
             - name: Retrive Variable
               run: |
