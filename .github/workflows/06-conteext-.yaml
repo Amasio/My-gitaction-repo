@@ -6,7 +6,6 @@ on:
     workflow_dispatch:
       inputs:
         debug:
-          description: "Example debug flag"
           type: boolean
           default: false
 
