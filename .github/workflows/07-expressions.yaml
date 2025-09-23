@@ -1,0 +1,30 @@
+name: 07 - Using Expressions
+run-name: 07- Using expressions debug | DEEBUG - ${{ inputs.debug && 'ON' || 'OFF'}}
+
+#env:
+#  MY_VAR_WITH_DEFAULT: ${{vars.MY_VAR || 'default_value'}}
+
+on:
+    push:
+    workflow_dispatch:
+        inputs:
+            debug:
+                type: boolean
+                default: false
+                description: boolean input
+
+jobs:
+    echo:
+        runs-on: ubuntu-latest
+        steps:
+            - name: '[debug] Print start-up'
+              if: ${{inputs.debug}}
+              run: |
+                  echo "trigger by: ${{ github.event_name }}"
+                  echo "branch: ${{ github.ref }}"
+                  echo "commit: ${{ github.sha }}"
+            - name: '[debug] Print when triggered from main'
+              if: ${{inputs.debug && github.ref == 'refs/heads/main'}}
+              run: echo "I was triggered from main"
+            - name: Greeting
+              run: echo "Hello world"
