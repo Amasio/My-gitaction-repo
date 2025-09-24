@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 env:
-  WORKLOF_VAR: "i am a workflow env var"
+  WORKFLOW_VAR: "i am a workflow env var"
   OVERWRITTEN: "env in workflow will be overvwritten" 
 jobs:
     echo:
@@ -17,12 +17,12 @@ jobs:
             - name: Print env Variables
               env:
                 STEP_VAR: "i am a step env var"
-                step-var2: 'I AM ANOTHEEER ENV VAR'
+                step-var2: 'I AM ANOTHER ENV VAR'
               run: |
                 echo "Step env var: ${{ env.STEP_VAR }} "
                 echo "Step env var 2: $step_var2"
                 echo "Step job env var: ${{env.JOB_VAR}}"
-                echo "Step workflow env var: ${{env.WORKLOF_VAR}}"
+                echo "Step workflow env var: ${{env.WORKFLOW_VAR}}"
                 echo "job overwriten env var: ${{env.OVERWRITTEN}}"
             - name: Overwrite jov Variables
               env:
